@@ -1,0 +1,106 @@
+/*
+ * SearchBar.css - Estilos para barra de búsqueda
+ * 
+ * Incluye:
+ * - Contenedor con gradiente de fondo
+ * - Inputs y selects estilizados
+ * - Botón de limpiar filtros
+ * - Efectos focus y hover
+ * - Layout responsive flexbox
+ * - Sombras y efectos visuales
+ */
+
+.search-bar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.search-inputs {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-group,
+.filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-group label,
+.filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.search-input,
+.status-filter {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus,
+.status-filter:focus {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.status-filter {
+  cursor: pointer;
+}
+
+.clear-filters-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  min-width: 150px;
+  height: fit-content;
+}
+
+.clear-filters-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .search-inputs {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .search-group,
+  .filter-group {
+    min-width: 100%;
+  }
+
+  .clear-filters-btn {
+    width: 100%;
+  }
+}

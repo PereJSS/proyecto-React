@@ -1,0 +1,220 @@
+/*
+ * CharacterModal.css - Estilos para modal de detalles
+ * 
+ * Incluye:
+ * - Modal overlay con backdrop blur
+ * - Layout de dos columnas (imagen + información)
+ * - Animaciones de entrada y salida
+ * - Botón de cierre flotante
+ * - Responsive design para móviles
+ * - Efectos visuales y sombras
+ */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.character-modal {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: #666;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: white;
+  color: #333;
+  transform: scale(1.1);
+}
+
+.modal-content {
+  display: flex;
+  min-height: 400px;
+}
+
+.modal-image-section {
+  flex: 1;
+  position: relative;
+  min-height: 400px;
+}
+
+.modal-character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 0 0 20px;
+}
+
+.modal-favorite-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.modal-favorite-btn:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+.modal-favorite-btn.favorited {
+  background: rgba(255, 107, 107, 0.95);
+  color: white;
+}
+
+.modal-info-section {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-character-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+  text-align: center;
+}
+
+.modal-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #555;
+  justify-content: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.modal-status-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.detail-row strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.detail-row span {
+  color: #555;
+  text-align: right;
+  flex: 1;
+  margin-left: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-character-image {
+    border-radius: 20px 20px 0 0;
+    height: 300px;
+  }
+
+  .modal-info-section {
+    padding: 24px;
+  }
+
+  .modal-character-name {
+    font-size: 1.5rem;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .detail-row span {
+    text-align: left;
+    margin-left: 0;
+  }
+}

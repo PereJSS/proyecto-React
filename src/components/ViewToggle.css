@@ -1,0 +1,140 @@
+/*
+ * ViewToggle.css - Estilos para toggle de vista y botón favoritos
+ * 
+ * Contiene:
+ * - Toggle de vista carrusel/cuadrícula
+ * - Botón de favoritos con contador
+ * - Animaciones de pulso y rebote
+ * - Gradientes y efectos visuales
+ * - Layout responsive flexbox
+ * - Estados hover y activos
+ */
+
+.view-toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.view-btn {
+  background: transparent;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.view-btn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.view-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.favorites-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+}
+
+.favorites-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 107, 107, 0.4);
+}
+
+.favorites-icon {
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
+}
+
+.favorites-text {
+  font-size: 1rem;
+}
+
+.favorites-count {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff6b6b;
+  border-radius: 50%;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 4px;
+  animation: bounce 0.5s ease;
+}
+
+/* Nota: Las animaciones pulse y bounce están definidas en App.css para reutilización */
+
+@media (max-width: 768px) {
+  .view-toggle-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .view-toggle {
+    justify-content: center;
+  }
+
+  .view-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .favorites-btn {
+    justify-content: center;
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-toggle {
+    padding: 4px;
+  }
+
+  .view-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .favorites-btn {
+    padding: 14px 20px;
+  }
+
+  .favorites-text {
+    font-size: 0.95rem;
+  }
+}

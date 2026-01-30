@@ -1,0 +1,222 @@
+/*
+ * FavoritesModal.css - Estilos para modal de favoritos
+ * 
+ * Incluye:
+ * - Modal full-screen con backdrop blur
+ * - Grid responsive para tarjetas de favoritos
+ * - Header con contador y botón de cierre
+ * - Estado vacío con iconos y mensajes
+ * - Botón de limpiar favoritos
+ * - Animaciones de entrada y grid
+ */
+
+.favorites-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+  padding: 20px;
+}
+
+.favorites-modal {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+  max-width: 1200px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+.favorites-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.favorites-modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.favorites-modal-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.favorites-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.favorites-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+}
+
+.no-favorites {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.no-favorites-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.no-favorites h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.no-favorites p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  animation: fadeInGrid 0.5s ease;
+}
+
+.favorites-modal-footer {
+  padding: 24px 32px;
+  border-top: 1px solid #eee;
+  background: #f8f9fa;
+}
+
+.clear-all-favorites-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.clear-all-favorites-btn:hover {
+  background: linear-gradient(135deg, #ff5252, #ff6b6b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .favorites-modal {
+    margin: 10px;
+    max-height: 95vh;
+  }
+
+  .favorites-modal-header {
+    padding: 20px 24px;
+  }
+
+  .favorites-modal-title {
+    font-size: 1.3rem;
+  }
+
+  .favorites-modal-content {
+    padding: 24px 20px;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .favorites-modal-footer {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .favorites-modal-backdrop {
+    padding: 10px;
+  }
+
+  .favorites-modal {
+    margin: 0;
+  }
+
+  .favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .favorites-modal-header {
+    padding: 16px 20px;
+  }
+
+  .favorites-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .favorites-modal-content {
+    padding: 20px 16px;
+  }
+}

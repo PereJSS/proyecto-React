@@ -1,0 +1,118 @@
+/*
+ * CharacterGrid.css - Estilos para cuadrícula de personajes
+ * 
+ * Define:
+ * - Grid CSS responsive con columnas fijas
+ * - Breakpoints para diferentes resoluciones
+ * - Contenedor centrado con max-width
+ * - Estado vacío con mensaje informativo
+ * - Animaciones de entrada
+ * - Espaciado y gaps optimizados
+ */
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  padding: 24px 0;
+  animation: fadeInGrid 0.5s ease;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Pantallas muy grandes - 5 columnas */
+@media (min-width: 1600px) {
+  .character-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+    max-width: 1600px;
+  }
+}
+
+/* Pantallas grandes - 4 columnas (default) */
+@media (min-width: 1024px) and (max-width: 1599px) {
+  .character-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+  }
+}
+
+/* Pantallas medianas - 3 columnas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .character-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+  }
+}
+
+.no-characters {
+  text-align: center;
+  padding: 80px 20px;
+  color: #666;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.no-characters-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.no-characters h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.no-characters p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .character-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 400px;
+    padding: 18px 0;
+  }
+
+  .no-characters {
+    padding: 60px 20px;
+  }
+
+  .no-characters-icon {
+    font-size: 3rem;
+  }
+
+  .no-characters h3 {
+    font-size: 1.3rem;
+  }
+}

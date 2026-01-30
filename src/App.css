@@ -1,0 +1,269 @@
+/*
+ * App.css - Estilos principales de la aplicación
+ * 
+ * Contiene:
+ * - Variables CSS globales (colores, tamaños, transiciones)
+ * - Reset y estilos base
+ * - Layout principal de la aplicación
+ * - Estados de carga y error
+ * - Configuración de Swiper y paginación
+ * - Media queries responsive
+ * - Animaciones keyframes
+ */
+
+/* Variables CSS */
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --success-color: #55cc44;
+  --danger-color: #d63d2e;
+  --warning-color: #f39c12;
+  --text-primary: #2c3e50;
+  --text-secondary: #555;
+  --background-light: #f8f9fa;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.app-main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Estados de carga y error */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.loading::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--background-light);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.error {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  border-radius: var(--border-radius);
+  margin: 20px 0;
+  box-shadow: var(--box-shadow);
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Estilos del Swiper */
+.characters-swiper {
+  padding: 40px 20px;
+  overflow: visible;
+}
+
+.characters-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.characters-swiper .swiper-button-next,
+.characters-swiper .swiper-button-prev {
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.characters-swiper .swiper-button-next::after,
+.characters-swiper .swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.characters-swiper .swiper-button-next:hover,
+.characters-swiper .swiper-button-prev:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.characters-swiper .swiper-pagination {
+  bottom: 0;
+}
+
+.characters-swiper .swiper-pagination-bullet {
+  background: var(--primary-color);
+  opacity: 0.5;
+  transition: var(--transition);
+}
+
+.characters-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Animaciones globales - consolidadas para reutilización */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInGrid {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 16px;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .characters-swiper {
+    padding: 20px 10px;
+  }
+
+  .characters-swiper .swiper-button-next,
+  .characters-swiper .swiper-button-prev {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+}

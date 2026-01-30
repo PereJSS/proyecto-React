@@ -1,0 +1,185 @@
+/*
+ * CharacterCard.css - Estilos para tarjetas de personajes
+ * 
+ * Define:
+ * - Diseño de tarjeta con altura fija uniforme
+ * - Layout flexbox para distribución del contenido
+ * - Efectos hover y transiciones
+ * - Botón de favorito flotante
+ * - Responsive design para móviles
+ * - Colores dinámicos según estado del personaje
+ */
+
+.character-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  height: 450px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.character-image-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-image {
+  transform: scale(1.05);
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.favorite-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+  background: rgba(255, 107, 107, 0.9);
+  color: white;
+}
+
+.character-info {
+  padding: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 230px;
+  min-height: 230px;
+  max-height: 230px;
+}
+
+.character-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  text-align: center;
+  line-height: 1.2;
+  height: 2.4em;
+  min-height: 2.4em;
+  max-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.character-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #555;
+  justify-content: center;
+  height: 1.5em;
+  min-height: 1.5em;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.character-details {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  overflow: hidden;
+}
+
+.character-details p {
+  margin: 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 1.5em;
+  min-height: 1.5em;
+}
+
+.character-details strong {
+  color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+  .character-card {
+    max-width: 280px;
+    height: 400px;
+    width: 100%;
+  }
+
+  .character-image-container {
+    height: 180px;
+  }
+
+  .character-info {
+    padding: 16px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+  }
+
+  .character-name {
+    font-size: 1rem;
+    height: 2.2em;
+    min-height: 2.2em;
+    max-height: 2.2em;
+  }
+
+  .character-details {
+    font-size: 0.75rem;
+    height: 110px;
+    min-height: 110px;
+    max-height: 110px;
+  }
+}
